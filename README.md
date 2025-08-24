@@ -4,6 +4,7 @@ load.js is a lightweight and simple library for loading local files directly in 
 
 ## Features
 - **Effortless File Loading**: Simply click a button to load local JSON, text, JavaScript, Python, or HTML files.
+- **(Please import Brython when using Python.)
 - **Minimal API**: Provides a clean and easy-to-use API with methods like `load.json()`, `load.text()`, and `load.js()`.
 - **Flexible Display**: Choose to display the loaded content in the console or keep it hidden for background tasks.
 - **No Dependencies**: Works out of the box with pure JavaScript.
