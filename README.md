@@ -13,15 +13,14 @@ load.js is a lightweight and simple library for loading local files directly in 
 1. Add the `load.js` code to your `index.html` file.
 2. Create a button in your HTML that will trigger the file selection.
 
-### Example: Loading a JSON file
-This example shows how to use `load.json()` to load a local `data.json` file.
+### Example: Loading a file
 
 ```html
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>load.js v1.1.0 全機能テスト (CDN)</title>
+    <title>load.js v1.1.0 test (CDN)</title>
     <style>
         body { font-family: sans-serif; padding: 20px; }
         .test-section { border: 1px solid #ccc; padding: 15px; margin-bottom: 20px; }
@@ -30,44 +29,44 @@ This example shows how to use `load.json()` to load a local `data.json` file.
     </style>
 </head>
 <body>
-    <h1>`load.js` v1.1.0 全機能テスト (CDN)</h1>
-    <p>以下の各ボタンをクリックするか、対応するファイルをドラッグ＆ドロップしてください。</p>
+    <h1>`load.js` v1.1.0 test (CDN)</h1>
+    <p>Click on the buttons below or drop and drop the corresponding files.</p>
 
     <div class="test-section">
-        <h2>JSONテスト</h2>
-        <p>単一・複数ファイル、フィルタリング、ログ、進捗表示をテストします。</p>
-        <button id="test-json-single-button">単一JSONファイル</button>
-        <button id="test-json-multiple-button">複数JSONファイル</button>
-        <div id="json-dropzone" class="drop-zone">JSONファイルをここにドロップ</div>
+        <h2>JSON test</h2>
+        <p>Tests single and multiple files, filtering, logging, and progress display.</p>
+        <button id="test-json-single-button">single JSON file</button>
+        <button id="test-json-multiple-button">multiple JSON file</button>
+        <div id="json-dropzone" class="drop-zone">Drop your JSON file here</div>
         <pre id="json-output"></pre>
     </div>
 
     <div class="test-section">
-        <h2>テキストテスト</h2>
-        <p>単一・複数ファイル、ログ、進捗表示をテストします。</p>
-        <button id="test-text-button">テキストファイル</button>
+        <h2>text test</h2>
+        <p>Tests single and multiple files, filtering, logging, and progress display.</p>
+        <button id="test-text-button">text file</button>
         <pre id="text-output"></pre>
     </div>
 
     <div class="test-section">
-        <h2>HTMLテスト</h2>
-        <p>`load.html()`でコンテンツを動的に追加します。</p>
+        <h2>HTMLtest</h2>
+        <p>Add content dynamically with `load.html()`</p>
         <button id="test-html-button">HTMLファイル</button>
         <div id="html-container">
-            <p>この下に新しいコンテンツが追加されます。</p>
+            <p>New content will be added below this.</p>
         </div>
     </div>
 
     <div class="test-section">
-        <h2>JavaScriptテスト</h2>
-        <p>JSファイルをロードして実行します。コンソールとアラートを確認してください。</p>
-        <button id="test-js-button">JSファイル</button>
+        <h2>JavaScript test</h2>
+        <p>Load and run the JS file, check the console and the alerts.</p>
+        <button id="test-js-button">JS file</button>
     </div>
 
     <div class="test-section">
-        <h2>Pythonテスト (Brython使用)</h2>
-        <p>Pythonファイルをロードして実行します。</p>
-        <button id="test-py-button">Pythonファイル</button>
+        <h2>Python test (Used Brython)</h2>
+        <p>Load and run a Python file.</p>
+        <button id="test-py-button">Python file</button>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.9.0/brython.min.js"></script>
@@ -76,7 +75,7 @@ This example shows how to use `load.json()` to load a local `data.json` file.
     <script src="https://cdn.jsdelivr.net/gh/kurigohan-programhub/load.js@v1.1.0/load.js"></script>
 
     <script>
-        // JSONテスト
+        // JSONtest
         load.json('test-json-single-button', { log: true, filter: ['name', 'age'] })
             .then(data => { document.getElementById('json-output').textContent = JSON.stringify(data.content, null, 2); })
             .catch(error => { console.error(error); });
@@ -95,7 +94,7 @@ This example shows how to use `load.json()` to load a local `data.json` file.
             })
             .catch(error => { console.error(error); });
 
-        // テキストテスト
+        // text test
         load.text('test-text-button', { log: true, multiple: true })
             .then(files => {
                 const output = files.map(f => `--- ${f.name} ---\n${f.content}`).join('\n\n');
@@ -103,15 +102,15 @@ This example shows how to use `load.json()` to load a local `data.json` file.
             })
             .catch(error => { console.error(error); });
         
-        // HTMLテスト
+        // HTML test
         load.html('test-html-button', 'html-container', { log: true })
             .catch(error => { console.error(error); });
         
-        // JavaScriptテスト
+        // JavaScript test
         load.js('test-js-button', { log: true })
             .catch(error => { console.error(error); });
         
-        // Pythonテスト
+        // Python test
         load.py('test-py-button', { log: true })
             .catch(error => { console.error(error); });
     </script>
